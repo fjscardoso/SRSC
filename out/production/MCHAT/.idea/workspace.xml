@@ -5,8 +5,6 @@
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/SMCPMulticastSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MCHAT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MCHAT.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MChatCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/MChatCliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MulticastChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/MulticastChat.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,7 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1572376601144</updated>
       <workItem from="1572376602647" duration="2013000" />
-      <workItem from="1572393299874" duration="1843000" />
+      <workItem from="1572393299874" duration="416000" />
     </task>
     <servers />
   </component>

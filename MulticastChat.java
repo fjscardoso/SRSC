@@ -1,8 +1,11 @@
 // MulticastChat.java
 // Objecto que representa um chat Multicast
 
+import javax.crypto.NoSuchPaddingException;
 import java.io.*;
 import java.net.*;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.util.*;
 
 public class MulticastChat extends Thread {
@@ -44,7 +47,7 @@ public class MulticastChat extends Thread {
 
   public MulticastChat(String username, InetAddress group, int port, 
                        int ttl, 
-                       MulticastChatEventListener listener) throws IOException {
+                       MulticastChatEventListener listener) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException {
 
     this.username = username;
     this.group = group;
@@ -52,7 +55,7 @@ public class MulticastChat extends Thread {
     isActive = true;
 
     // create & configure multicast socket
-    msocket = new MulticastSocket(port);
+    msocket = new SMCPMulticastSocket(port, username);
     msocket.setSoTimeout(DEFAULT_SOCKET_TIMEOUT_MILLIS);
     msocket.setTimeToLive(ttl);
     msocket.joinGroup(group);
