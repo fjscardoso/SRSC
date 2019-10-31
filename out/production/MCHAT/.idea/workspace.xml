@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="068fcda2-0e30-4990-87fa-3621fd2695a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SMCPMulticastSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MulticastChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/MulticastChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SMCPMulticastSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/SMCPMulticastSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MulticastChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MulticastChat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/SMCPMulticastSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/SMCPMulticastSocket.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,10 +55,10 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="MChatCliente" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="MChatCliente" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MChatCliente" />
       <module name="MCHAT" />
-      <option name="PROGRAM_PARAMETERS" value="miguel 239.255.255.254 9000" />
+      <option name="PROGRAM_PARAMETERS" value="migue 239.255.255.254 9000" />
       <option name="VM_PARAMETERS" value="-Djava.net.preferIPv4Stack=true" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -79,7 +81,10 @@
       <option name="presentableId" value="Default" />
       <updated>1572376601144</updated>
       <workItem from="1572376602647" duration="2013000" />
-      <workItem from="1572393299874" duration="416000" />
+      <workItem from="1572393299874" duration="4622000" />
+      <workItem from="1572404984671" duration="806000" />
+      <workItem from="1572472246924" duration="3252000" />
+      <workItem from="1572479129407" duration="552000" />
     </task>
     <servers />
   </component>

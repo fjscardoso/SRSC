@@ -34,6 +34,8 @@ public class MulticastChat extends Thread {
   // Username / User-Nick-Name do Chat
   protected String username;
 
+  protected String sId;
+
   // Grupo IP Multicast utilizado
   protected InetAddress group;
 
@@ -54,8 +56,12 @@ public class MulticastChat extends Thread {
     this.listener = listener;
     isActive = true;
 
+    this.sId = group.getHostName() + ":" + port;
+
     // create & configure multicast socket
-    msocket = new SMCPMulticastSocket(port, username);
+    //msocket = new SMCPMulticastSocket(port, username, sId);
+    msocket = new SMCPMulticastSocket(port, username, sId);
+
     msocket.setSoTimeout(DEFAULT_SOCKET_TIMEOUT_MILLIS);
     msocket.setTimeToLive(ttl);
     msocket.joinGroup(group);
@@ -174,14 +180,15 @@ public class MulticastChat extends Thread {
   // as operacoes e mensagens
   // 
   public void run() {
-    byte[] buffer = new byte[65508];
+    byte[] buffer = new byte[65500];
     DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
 
     while (isActive) {
       try {
 
         // Comprimento do DatagramPacket RESET antes do request
-        packet.setLength(buffer.length);
+          //TODO ask professor
+          packet = new DatagramPacket(buffer, buffer.length);
         msocket.receive(packet);
 
         DataInputStream istream = 
@@ -189,7 +196,6 @@ public class MulticastChat extends Thread {
                 packet.getOffset(), packet.getLength()));
 
         long magic = istream.readLong();
-
         if (magic != CHAT_MAGIC_NUMBER) {
           continue;
 
@@ -219,6 +225,7 @@ public class MulticastChat extends Thread {
 	 
 	 
       } catch (Throwable e) {
+          e.printStackTrace();
         error("Processing error: " + e.getClass().getName() + ": " 
               + e.getMessage());
       } 
