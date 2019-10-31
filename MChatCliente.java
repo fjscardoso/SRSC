@@ -1,13 +1,15 @@
 // MChatCliente.java
 // 
 
+import phase1.MulticastChat;
+import phase1.MulticastChatEventListener;
+
 import java.io.IOException;
 import java.net.InetAddress;
 import java.awt.*;
 import java.awt.event.*;
 import javax.crypto.NoSuchPaddingException;
 import javax.swing.*;
-import javax.swing.text.*;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -39,7 +41,7 @@ public class MChatCliente extends JFrame implements MulticastChatEventListener
 
 	// Construtor para uma frame com do chat multicast  (inicializado em estado nao conectado)
 	public MChatCliente() {
-		super("MulticastChat (modo: desconectado)");
+		super("phase1.MulticastChat (modo: desconectado)");
 
 		// Construct GUI components (iniciaizacao de sessao)
 		textArea = new JTextArea();

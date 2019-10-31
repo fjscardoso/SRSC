@@ -1,3 +1,5 @@
+package phase1;
+
 import org.bouncycastle.jcajce.provider.symmetric.ARC4;
 import org.bouncycastle.util.encoders.Base64Encoder;
 
@@ -67,7 +69,6 @@ public class SMCPMulticastSocket extends MulticastSocket {
             packet.setLength(outputStream.size());
 
             super.send(packet);
-            System.out.println("manda a mensagem");
 
         } catch (InvalidKeyException e) {
             e.printStackTrace();
@@ -98,7 +99,6 @@ public class SMCPMulticastSocket extends MulticastSocket {
         DatagramPacket p = new DatagramPacket(new byte[MAX_SIZE], MAX_SIZE);
 
         super.receive(p);
-        System.out.println("recebe a mensagem");
 
 
 
@@ -152,7 +152,7 @@ public class SMCPMulticastSocket extends MulticastSocket {
             if(!nounces.contains(nounce))
                 nounces.add(nounce);
             else
-                throw new RuntimeException();
+                System.out.println("duplicated nounce");
 
 
             int size = istream.readInt();

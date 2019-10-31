@@ -1,5 +1,7 @@
-// MulticastChat.java
+package phase1;// phase1.MulticastChat.java
 // Objecto que representa um chat Multicast
+
+import phase1.SMCPMulticastSocket;
 
 import javax.crypto.NoSuchPaddingException;
 import java.io.*;
@@ -9,7 +11,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
-import java.util.*;
 
 public class MulticastChat extends Thread {
 
@@ -62,9 +63,7 @@ public class MulticastChat extends Thread {
     this.sId = group.getHostName() + ":" + port;
 
     // create & configure multicast socket
-    //msocket = new SMCPMulticastSocket(port, username, sId);
     msocket = new SMCPMulticastSocket(port, sId);
-
     msocket.setSoTimeout(DEFAULT_SOCKET_TIMEOUT_MILLIS);
     msocket.setTimeToLive(ttl);
     msocket.joinGroup(group);
@@ -86,7 +85,7 @@ public class MulticastChat extends Thread {
 
   // Issues an error message
   protected void error(String message) {
-    System.err.println(new java.util.Date() + ": MulticastChat: " 
+    System.err.println(new java.util.Date() + ": phase1.MulticastChat: "
                        + message);
   } 
 
@@ -183,17 +182,17 @@ public class MulticastChat extends Thread {
   // as operacoes e mensagens
   // 
   public void run() {
-    byte[] buffer = new byte[65500];
+    byte[] buffer = new byte[65508];
     DatagramPacket packet;
+
 
     while (isActive) {
       try {
 
         // Comprimento do DatagramPacket RESET antes do request
           //TODO ask professor
-          packet = new DatagramPacket(buffer, buffer.length);
+        packet = new DatagramPacket(buffer, buffer.length);
         msocket.receive(packet);
-        System.out.println("recebe do lado multicast");
 
         DataInputStream istream = 
           new DataInputStream(new ByteArrayInputStream(packet.getData(), 

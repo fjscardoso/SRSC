@@ -1,4 +1,4 @@
-// MulticastChatEventListener.java
+package phase1;// phase1.MulticastChatEventListener.java
 
 import java.net.InetAddress;
 

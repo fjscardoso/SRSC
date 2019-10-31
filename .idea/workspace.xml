@@ -7,10 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="068fcda2-0e30-4990-87fa-3621fd2695a7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MChatCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/MChatCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MulticastChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/MulticastChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SMCPMulticastSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/SMCPMulticastSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MulticastChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase1/MulticastChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MulticastChatEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase1/MulticastChatEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SMCPMulticastSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase1/SMCPMulticastSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1-Report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/TP1-Report.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MCHAT/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$2.class" afterDir="false" />
@@ -22,8 +26,11 @@
       <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MulticastChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MulticastChat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/SMCPMulticastSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/SMCPMulticastSocket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MulticastChat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MulticastChatEventListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/README" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/SMCPMulticastSocket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/TP1-Report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/TP1-Report.docx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +82,7 @@
     <configuration name="MChatCliente" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MChatCliente" />
       <module name="MCHAT" />
-      <option name="PROGRAM_PARAMETERS" value="miguel 239.255.255.254 9000" />
+      <option name="PROGRAM_PARAMETERS" value="joao 239.255.255.254 9000" />
       <option name="VM_PARAMETERS" value="-Djava.net.preferIPv4Stack=true" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -105,7 +112,10 @@
       <workItem from="1572506895488" duration="1366000" />
       <workItem from="1572508571394" duration="477000" />
       <workItem from="1572546028194" duration="1553000" />
-      <workItem from="1572548017698" duration="864000" />
+      <workItem from="1572548017698" duration="887000" />
+      <workItem from="1572554171636" duration="968000" />
+      <workItem from="1572559777554" duration="4342000" />
+      <workItem from="1572564300472" duration="108000" />
     </task>
     <servers />
   </component>
@@ -124,5 +134,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/phase1/SMCPMulticastSocket.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/phase1/MulticastChat.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

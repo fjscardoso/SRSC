@@ -36,7 +36,7 @@ Correr o interpretador/JMV com a seguinte property
 The support for using Multicast (Datagram) Sockets to send and to
 receive Chat messagesas well as the management of Datagram Packets 
 carrying the Chat messages, is specifically supported in the
-MulticastChat class.
+phase1.MulticastChat class.
 So, a good stating point to address the WA#1 (see the WA#1
 requirements) is to extend MulticastSockets (used here) by
 SMCPSockets (or SMCPmulticastSockets), to minimize changes in the
