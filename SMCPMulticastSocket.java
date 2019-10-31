@@ -7,6 +7,8 @@ import java.io.*;
 import java.net.DatagramPacket;
 import java.net.MulticastSocket;
 import java.security.*;
+import java.security.cert.CertificateException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
@@ -20,28 +22,29 @@ public class SMCPMulticastSocket extends MulticastSocket {
 
     protected String sId;
     protected int counter = 0;
-    protected String username;
 
     protected List<Integer> nounces;
 
     private static final int MAX_SIZE = 65536;
 
-
-    byte[]	keyBytes = new byte[] {
-            0x01, 0x23, 0x45, 0x67, (byte)0x89, (byte)0xab,(byte)0xcd, (byte)0xef,
-            0x01, 0x23, 0x45, 0x67, (byte)0x89, (byte)0xab,(byte)0xcd, (byte)0xef
-    };
-
-    SecretKeySpec key = new SecretKeySpec(keyBytes, "AES");
-    SecretKeySpec HMacKey = new SecretKeySpec(keyBytes, "HMacSHA1");
+    Key key;
+    Key HMacKey;
     Cipher cipher;
 
-    public SMCPMulticastSocket(int port, String username, String sId) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException {
+    public SMCPMulticastSocket(int port, String sId) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException, KeyStoreException, CertificateException, UnrecoverableKeyException {
         super(port);
-        this.username = username;
         this.sId = sId;
+        nounces = new ArrayList<Integer>();
+
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
         cipher = Cipher.getInstance(cipherMode, "BC");
+
+        KeyStore keyStore = KeyStore.getInstance("JCEKS");
+        FileInputStream stream = new FileInputStream("mykeystore.jceks");
+        keyStore.load(stream, "password".toCharArray());
+
+        key = keyStore.getKey("mykey1", "password".toCharArray());
+        HMacKey = keyStore.getKey("mykey2", "password".toCharArray());
     }
 
     public void send(DatagramPacket packet) throws IOException {
@@ -62,7 +65,9 @@ public class SMCPMulticastSocket extends MulticastSocket {
             dataStream.write(buildFastSecureMCheck(outputStream.toByteArray()));
             packet.setData(outputStream.toByteArray());
             packet.setLength(outputStream.size());
+
             super.send(packet);
+            System.out.println("manda a mensagem");
 
         } catch (InvalidKeyException e) {
             e.printStackTrace();
@@ -93,6 +98,7 @@ public class SMCPMulticastSocket extends MulticastSocket {
         DatagramPacket p = new DatagramPacket(new byte[MAX_SIZE], MAX_SIZE);
 
         super.receive(p);
+        System.out.println("recebe a mensagem");
 
 
 
@@ -100,17 +106,18 @@ public class SMCPMulticastSocket extends MulticastSocket {
                 new DataInputStream(new ByteArrayInputStream(p.getData(),
                         0, p.getLength()));
 
-        if(VERSION == istream2.read())
-            System.out.println("version match");
 
-        if(sId == istream2.readUTF())
-            System.out.println("sId match");
+        if(VERSION != istream2.read())
+            throw new RuntimeException();
 
-        if(MSGTYPE == istream2.read())
-            System.out.println("msg type match");
+        if(!sId.equals(istream2.readUTF()))
+            throw new RuntimeException();
 
-        if(istream2.readUTF().equals(buildSAttr()))
-            System.out.println("sAttr equals");
+        if(MSGTYPE != istream2.read())
+            throw new RuntimeException();
+
+        if(!istream2.readUTF().equals(buildSAttr()))
+            throw new RuntimeException();
 
         int sizeSecurePayload = istream2.readInt();
         byte[] encrypted = new byte[sizeSecurePayload];
@@ -123,7 +130,6 @@ public class SMCPMulticastSocket extends MulticastSocket {
         byte[] completeMessage = Arrays.copyOfRange(p.getData(), 0, p.getLength() - fastSecureMCheck.length);
 
         if(Arrays.equals(fastSecureMCheck, buildFastSecureMCheck(completeMessage)))
-            System.out.println("FastSecureMCheck check");
 
         // Decifrar
             cipher.init(Cipher.DECRYPT_MODE, key);
@@ -135,8 +141,18 @@ public class SMCPMulticastSocket extends MulticastSocket {
 
 
             int c = istream.readInt();
+            if(c != counter)
+                throw new RuntimeException();
 
-            int nonce = istream.readInt();
+            int nounce = istream.readInt();
+
+            //for(int i = 0; i < nounces.size(); i++)
+            //    System.out.println(nounces.get(i));
+
+            if(!nounces.contains(nounce))
+                nounces.add(nounce);
+            else
+                throw new RuntimeException();
 
 
             int size = istream.readInt();
@@ -149,8 +165,8 @@ public class SMCPMulticastSocket extends MulticastSocket {
             byte[] hashFromMessage = new byte[istream.available()];
             istream.readFully(hashFromMessage, 0, istream.available());
 
-            if(Arrays.equals(hash, hashFromMessage))
-                System.out.println("hash equals");
+            if(!Arrays.equals(hash, hashFromMessage))
+                throw new RuntimeException();
 
 
 

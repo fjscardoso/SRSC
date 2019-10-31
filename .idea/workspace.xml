@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="MCHAT:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="068fcda2-0e30-4990-87fa-3621fd2695a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MChatCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/MChatCliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MulticastChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/MulticastChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SMCPMulticastSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/SMCPMulticastSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MCHAT/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MChatCliente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MCHAT/MulticastChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/MulticastChat.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MCHAT/SMCPMulticastSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MCHAT/SMCPMulticastSocket.class" afterDir="false" />
     </list>
@@ -28,6 +44,7 @@
   <component name="ProjectId" id="1StIjfC5VHHKbbeYKfMshPQ1kJe" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -38,9 +55,9 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -58,7 +75,7 @@
     <configuration name="MChatCliente" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MChatCliente" />
       <module name="MCHAT" />
-      <option name="PROGRAM_PARAMETERS" value="migue 239.255.255.254 9000" />
+      <option name="PROGRAM_PARAMETERS" value="miguel 239.255.255.254 9000" />
       <option name="VM_PARAMETERS" value="-Djava.net.preferIPv4Stack=true" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -84,7 +101,11 @@
       <workItem from="1572393299874" duration="4622000" />
       <workItem from="1572404984671" duration="806000" />
       <workItem from="1572472246924" duration="3252000" />
-      <workItem from="1572479129407" duration="10601000" />
+      <workItem from="1572479129407" duration="17914000" />
+      <workItem from="1572506895488" duration="1366000" />
+      <workItem from="1572508571394" duration="477000" />
+      <workItem from="1572546028194" duration="1553000" />
+      <workItem from="1572548017698" duration="864000" />
     </task>
     <servers />
   </component>

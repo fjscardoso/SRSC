@@ -8,8 +8,11 @@ import java.awt.event.*;
 import javax.crypto.NoSuchPaddingException;
 import javax.swing.*;
 import javax.swing.text.*;
+import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
+import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateException;
 import java.util.*;
 
 // Interface para a sessao de chat swing-based
@@ -172,7 +175,7 @@ public class MChatCliente extends JFrame implements MulticastChatEventListener
 	
 	// Configuracao do grupo multicast da sessao de chat na interface do cliente
 	public void join(String username, InetAddress group, int port, 
-					 int ttl) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException {
+					 int ttl) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException, CertificateException, KeyStoreException, UnrecoverableKeyException {
 		setTitle("CHAT MulticastIP " + username + "@" + group.getHostAddress() 
 				 + ":" + port + " [TTL=" + ttl + "]");
 

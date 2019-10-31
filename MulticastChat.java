@@ -4,8 +4,11 @@
 import javax.crypto.NoSuchPaddingException;
 import java.io.*;
 import java.net.*;
+import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
+import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateException;
 import java.util.*;
 
 public class MulticastChat extends Thread {
@@ -49,7 +52,7 @@ public class MulticastChat extends Thread {
 
   public MulticastChat(String username, InetAddress group, int port, 
                        int ttl, 
-                       MulticastChatEventListener listener) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException {
+                       MulticastChatEventListener listener) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException, CertificateException, KeyStoreException, UnrecoverableKeyException {
 
     this.username = username;
     this.group = group;
@@ -60,7 +63,7 @@ public class MulticastChat extends Thread {
 
     // create & configure multicast socket
     //msocket = new SMCPMulticastSocket(port, username, sId);
-    msocket = new SMCPMulticastSocket(port, username, sId);
+    msocket = new SMCPMulticastSocket(port, sId);
 
     msocket.setSoTimeout(DEFAULT_SOCKET_TIMEOUT_MILLIS);
     msocket.setTimeToLive(ttl);
@@ -181,7 +184,7 @@ public class MulticastChat extends Thread {
   // 
   public void run() {
     byte[] buffer = new byte[65500];
-    DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+    DatagramPacket packet;
 
     while (isActive) {
       try {
@@ -190,6 +193,7 @@ public class MulticastChat extends Thread {
           //TODO ask professor
           packet = new DatagramPacket(buffer, buffer.length);
         msocket.receive(packet);
+        System.out.println("recebe do lado multicast");
 
         DataInputStream istream = 
           new DataInputStream(new ByteArrayInputStream(packet.getData(), 
@@ -198,8 +202,8 @@ public class MulticastChat extends Thread {
         long magic = istream.readLong();
         if (magic != CHAT_MAGIC_NUMBER) {
           continue;
+        }
 
-        } 
         int opCode = istream.readInt();
         switch (opCode) {
         case JOIN:

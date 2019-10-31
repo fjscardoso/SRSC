@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MCHAT:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MCHAT_jar</output-path>
+    <root id="archive" name="MCHAT.jar">
+      <element id="module-output" name="MCHAT" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/bcprov-ext-jdk15on-164.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
